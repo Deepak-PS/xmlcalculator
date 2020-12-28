@@ -22,6 +22,8 @@ public class Evaluator {
 					Result result = new Result();
 					result.setName(operation.getName());
 					result.setValue(operate(
+							// reading from the cities list and creating a list of population of all
+							// the filtered cites based on the given filter
 							cities.stream().filter(city -> city.getName().matches(operation.getFilter()))
 									.map(city -> city.getPopulation()).collect(Collectors.toList()),
 							operation.getFunc()));
@@ -34,6 +36,8 @@ public class Evaluator {
 					Result result = new Result();
 					result.setName(operation.getName());
 					result.setValue(
+							// reading from the cities list and creating a list of area of all
+							// the filtered cites based on the given filter
 							operate(cities.stream().filter(city -> city.getName().matches(operation.getFilter()))
 									.map(city -> city.getArea()).collect(Collectors.toList()), operation.getFunc()));
 					return result;
