@@ -18,10 +18,9 @@ import java.util.List;
 public class XMLCalculator {
 
 	public static void main(String[] args) {
-		final String DATA_FILE = "data.xml";
-		final String OPERATIONS_FILE = "operations.xml";
-		;
-		final String OUTPUT_FILE = "output.xml";
+		final String DATA_FILE = args[0];
+		final String OPERATIONS_FILE = args[1];
+		final String OUTPUT_FILE = args[2];
 		if (args.length == 3) {
 			try {
 				// Path to the data file, e.g. data/data.xml

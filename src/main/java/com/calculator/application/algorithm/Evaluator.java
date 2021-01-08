@@ -1,4 +1,4 @@
-package de.itdesign.application;
+package com.calculator.application.algorithm;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -20,7 +20,9 @@ public class Evaluator {
 		List<Result> populationResults = operations.stream().filter(operation -> operation.getType().equals(ATTRIB))
 				.filter(operation -> operation.getAttrib().equals(POPULATION)).map(operation -> {
 					Result result = new Result();
+
 					result.setName(operation.getName());
+
 					result.setValue(operate(getPopulationList(cities, operation), operation.getFunc()));
 					return result;
 				}).collect(Collectors.toList());
@@ -29,14 +31,18 @@ public class Evaluator {
 		List<Result> areaResults = operations.stream().filter(operation -> operation.getType().equals(SUB))
 				.filter(operation -> operation.getAttrib().equals(AREA)).map(operation -> {
 					Result result = new Result();
+
 					result.setName(operation.getName());
+
 					result.setValue(operate(getAreaList(cities, operation), operation.getFunc()));
+
 					return result;
 				}).collect(Collectors.toList());
 		results.addAll(areaResults);
 
 		return results;
 	}
+
 
 	private List<Double> getPopulationList(List<City> cities, Operation operation) {
 		// reading from the cities list and creating a list of population of all
